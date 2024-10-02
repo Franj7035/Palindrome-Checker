@@ -1,0 +1,66 @@
+<!-- Francisco Jair Hernandez Sanchez-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Palindrome Checker</title>
+    <style>
+        body {
+            background-color: aquamarine;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: black;
+        }
+        input {
+            padding: 10px; 
+            font-size: 16px; 
+            border: 2px solid #000; 
+            border-radius: 5px; 
+        }
+        button {
+            padding: 10px 20px; 
+            font-size: 16px; 
+            margin-top: 20px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            background-color: black; 
+            color: white; 
+        }
+        button:hover {
+            background-color: azure; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Palindrome Checker</h1>
+    <p>Enter a word to see if it's a Palindrome!</p>
+    
+    <input type="text" id="userInput" placeholder="Type a word here..."> 
+    <button id="checkButton">Check</button> 
+
+    <script>
+        function checkPalindrome() {
+            let userInput = document.getElementById('userInput').value;
+
+            if (userInput === '') {
+                alert('Please enter a word!');
+                return;
+            }
+            let cleanedInput = userInput.replace(/\s+/g, '').toLowerCase();
+
+            let isPalindrome = cleanedInput === cleanedInput.split('').reverse().join('');
+
+            if (isPalindrome) {
+                alert(`"${userInput}" is a palindrome!`); 
+            } else {
+                alert(`"${userInput}" is not a palindrome.`); 
+            }
+        }
+        document.getElementById('checkButton').addEventListener('click', checkPalindrome);
+    </script>
+</body>
+</html>
